@@ -1,4 +1,4 @@
-# React Hook Study
+# 👨‍💻 React Hook Study 🌱
 
 ### useState
 
@@ -7,3 +7,13 @@
 ### useContext
 
 ### useReducer
+
+### useMemo
+
+### useCallback
+
+### useRef
+
+### Custom Hooks
+#### useInputs
+#### usePromise

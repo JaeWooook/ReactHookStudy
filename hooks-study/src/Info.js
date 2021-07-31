@@ -1,21 +1,11 @@
-import React, { useContext, useReducer } from "react";
-
+import React, { useContext } from "react";
+import useInputs from "./useInput";
 import { UserContext } from "./store/user";
-function reducer(state, action) {
-  return {
-    ...state, //이전의 state들을 그대로 저장해주는것이다.
-    [action.name]: action.value,
-  };
-}
+
 const Info = () => {
   const context = useContext(UserContext);
-
-  const [state, dispatch] = useReducer(reducer, { name: "", nickname: "" }); //변경되는 값이 2개이다.
+  const [state, onChange] = useInputs({ name: "", nickname: "" }); //기존에 있었던 useReducer의 기능을 새로 useInputs hook을 생성해서 대체한다.
   const { name, nickname } = state;
-  const onChange = (e) => {
-    dispatch(e.target);
-  };
-  //대신에 useReducer를 이용해서 input태그를 관리하려면 각 태그들의 name이 필요하다 name은 물론 state와 동일해야하는것같다.
   return (
     <div>
       <div>

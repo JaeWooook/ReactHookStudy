@@ -4,6 +4,7 @@ import ContextSample from "./ContextSample";
 import UserStore from "./store/user";
 import Counter from "./Counter";
 import Average from "./Average";
+import UsePromiseSample from "./UsePromiseSample";
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -26,6 +27,9 @@ function App() {
       </div>
       <div>
         <Average></Average>
+      </div>
+      <div>
+        <UsePromiseSample />
       </div>
     </UserStore>
   );

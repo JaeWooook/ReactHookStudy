@@ -21,7 +21,7 @@ const Average = () => {
       const nextList = list.concat(parseInt(number));
       setList(nextList);
       setNumber("");
-      inputEl.current.focus(); //useRef를 사용하여 ref를 설정하면 useRef를 통해 만든 객체 안의 current값이 실제 엘리먼트를 가리키게 된다.
+      inputEl.current.focus();
     },
     [number, list]
   );
