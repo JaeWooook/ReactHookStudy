@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import Info from "./Info";
 import ContextSample from "./ContextSample";
 import UserStore from "./store/user";
+import Counter from "./Counter";
+import Average from "./Average";
+
 function App() {
   const [visible, setVisible] = useState(false);
   return (
-    //제일 위쪽을 감싸주어야 나머지 하위 컴포넌트에서도 사용가능하다.
     <UserStore>
+      <div>
+        <Counter></Counter>
+      </div>
       <div>
         <button
           onClick={() => {
@@ -18,6 +23,9 @@ function App() {
         <hr></hr>
         {visible && <Info></Info>}
         <ContextSample></ContextSample>
+      </div>
+      <div>
+        <Average></Average>
       </div>
     </UserStore>
   );

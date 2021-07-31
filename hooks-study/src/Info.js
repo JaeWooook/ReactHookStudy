@@ -1,33 +1,26 @@
-import React, { useState, useEffect, useContext } from "react";
-//Context를 사용할때는 useContext를 이용한다.
+import React, { useContext, useReducer } from "react";
+
 import { UserContext } from "./store/user";
-
+function reducer(state, action) {
+  return {
+    ...state, //이전의 state들을 그대로 저장해주는것이다.
+    [action.name]: action.value,
+  };
+}
 const Info = () => {
-  const context = useContext(UserContext); //반환을 받으면
-  //context가 해당되는 객체이다.
+  const context = useContext(UserContext);
 
-  const [name, setName] = useState("");
-  const [nickname, setNickname] = useState("");
-  useEffect(() => {
-    console.log("effect");
-    console.log(name);
-    return () => {
-      console.log("cleanup");
-      console.log(name);
-    };
-  }, []);
-  const onChangeName = (e) => {
-    setName(e.target.value);
+  const [state, dispatch] = useReducer(reducer, { name: "", nickname: "" }); //변경되는 값이 2개이다.
+  const { name, nickname } = state;
+  const onChange = (e) => {
+    dispatch(e.target);
   };
-  const onChangeNickname = (e) => {
-    setNickname(e.target.value);
-  };
-
+  //대신에 useReducer를 이용해서 input태그를 관리하려면 각 태그들의 name이 필요하다 name은 물론 state와 동일해야하는것같다.
   return (
     <div>
       <div>
-        <input value={name} onChange={onChangeName}></input>
-        <input value={nickname} onChange={onChangeNickname}></input>
+        <input name="name" value={name} onChange={onChange}></input>
+        <input name="nickname" value={nickname} onChange={onChange}></input>
       </div>
       <div>
         <div>
