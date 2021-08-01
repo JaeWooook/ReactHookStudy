@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.gnb-menu {
+  background: gray;
+  display: flex;
+  justify-content: space-around;
+  align-items: top;
+  /* height: 100vh; 이거하면 아래 컴포넌트들 안보인다?*/
+}
+
+.gnb-menu a {
+  font-size: 24px;
+  color: rgb(37, 70, 177);
+  text-decoration: none;
+  position: relative;
+  padding: 6px 12px;
+}
+
+.gnb-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: #f1c40f;
+  transition: all 0.5s ease-out;
+}
+
+.gnb-menu a:hover::after {
+  width: 100%;
+}

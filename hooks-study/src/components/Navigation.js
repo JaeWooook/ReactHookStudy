@@ -1,23 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Navigation.css";
 
 const Navigation = () => {
   return (
     <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/HookStudy">HookStudy</Link>
-        </li>
-        <li>
-          <Link to="/ReduxStudy">ReduxStudy</Link>
-        </li>
-        <li>
-          <Link to="/MobxStudy">MobxStudy</Link>
-        </li>
-      </ul>
+      <nav className="gnb-menu">
+        <a href="/">Home</a>
+        <a href="/HookStudy">HookStudy</a>
+        <a href="/ReduxStudy">ReduxStudy</a>
+        <a href="/MobxStudy">MobxStudy</a>
+      </nav>
       <hr></hr>
     </div>
   );
