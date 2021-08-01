@@ -1,37 +1,20 @@
-import React, { useState } from "react";
-import Info from "./Info";
-import ContextSample from "./ContextSample";
-import UserStore from "./store/user";
-import Counter from "./Counter";
-import Average from "./Average";
-import UsePromiseSample from "./UsePromiseSample";
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HookStudy from "./routes/HookStudy";
+import ReduxStudy from "./routes/ReduxStudy";
+import MobxStudy from "./routes/MobxStudy";
+import Navigation from "./components/Navigation";
 
 function App() {
-  const [visible, setVisible] = useState(false);
   return (
-    <UserStore>
-      <div>
-        <Counter></Counter>
-      </div>
-      <div>
-        <button
-          onClick={() => {
-            setVisible(!visible);
-          }}
-        >
-          {visible ? "숨기기" : "보이기"}
-        </button>
-        <hr></hr>
-        {visible && <Info></Info>}
-        <ContextSample></ContextSample>
-      </div>
-      <div>
-        <Average></Average>
-      </div>
-      <div>
-        <UsePromiseSample />
-      </div>
-    </UserStore>
+    <BrowserRouter>
+      <Navigation />
+      <Switch>
+        <Route path="/HookStudy" component={HookStudy} />
+        <Route path="/ReduxStudy" component={ReduxStudy} />
+        <Route path="/MobxStudy" component={MobxStudy} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
