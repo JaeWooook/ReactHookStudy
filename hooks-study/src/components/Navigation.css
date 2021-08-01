@@ -8,7 +8,6 @@
   display: flex;
   justify-content: space-around;
   align-items: top;
-  /* height: 100vh; 이거하면 아래 컴포넌트들 안보인다?*/
 }
 
 .gnb-menu a {
