@@ -6,23 +6,27 @@ import WaitingList from "../WaitingList";
 
 class WaitingListContainer extends Component {
   handleChange = (e) => {
+    //인풋 변경 이벤트
     const { WaitingActions } = this.props;
     WaitingActions.changeInput(e.target.value);
   };
 
   handleSubmit = (e) => {
+    //등록 이벤트
     e.preventDefault();
     const { WaitingActions, input } = this.props;
-    WaitingActions.create(input);
-    WaitingActions.changeInput("");
+    WaitingActions.create(input); //등록
+    WaitingActions.changeInput(""); //인풋 최화
   };
 
   handleEnter = (id) => {
+    //입장
     const { WaitingActions } = this.props;
     WaitingActions.enter(id);
   };
 
   handleLeave = (id) => {
+    //나가기
     const { WaitingActions } = this.props;
     WaitingActions.leave(id);
   };
@@ -42,8 +46,8 @@ class WaitingListContainer extends Component {
 }
 
 const mapStateToProps = ({ waiting }) => ({
-  input: waiting.input,
-  list: waiting.list,
+  input: waiting.get("input"),
+  list: waiting.get("list"),
 });
 
 const mapDispatchToProps = (dispatch) => ({

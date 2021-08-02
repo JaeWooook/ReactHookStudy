@@ -1,4 +1,5 @@
 import { createAction, handleActions } from "redux-actions";
+import { List, Map } from "immutable";
 
 //액션 타입 정의하기
 const CHANGE_INPUT = "waiting/CHANGE_INPUT"; //인풋 값 변경
@@ -14,52 +15,55 @@ export const enter = createAction(ENTER, (id) => id);
 export const leave = createAction(LEAVE, (id) => id);
 
 //초기 상태의 정의
-const initialState = {
+const initialState = Map({
   input: "",
-  list: [
-    {
+  list: List([
+    Map({
       id: 0,
       name: "홍길동",
       entered: true,
-    },
-    {
+    }),
+    Map({
       id: 1,
       name: "콩쥐",
       entered: false,
-    },
-    {
+    }),
+    Map({
       id: 2,
       name: "팥쥐",
       entered: false,
-    },
-  ],
-};
+    }),
+  ]),
+});
 
 //handleActions로 리듀서 함수 작성
 export default handleActions(
   {
-    [CHANGE_INPUT]: (state, action) => ({
-      ...state,
-      input: action.payload,
-    }),
-    [CREATE]: (state, action) => ({
-      ...state,
-      list: state.list.concat({
-        id: action.payload.id,
-        name: action.payload.text,
-        entered: false,
-      }),
-    }),
-    [ENTER]: (state, action) => ({
-      ...state,
-      list: state.list.map((item) =>
-        item.id === action.payload ? { ...item, entered: !item.entered } : item
+    [CHANGE_INPUT]: (state, action) => state.set("input", action.payload),
+    [CREATE]: (state, action) =>
+      //list 값을 조회한다음에
+      state.update("list", (list) =>
+        list.push(
+          //list에 새로운 Map을 추가한다 객체는 Map
+          Map({
+            id: action.payload.id,
+            name: action.payload.text,
+            entered: false,
+          })
+        )
       ),
-    }),
-    [LEAVE]: (state, action) => ({
-      ...state,
-      list: state.list.filter((item) => item.id !== action.payload),
-    }),
+    [ENTER]: (state, action) => {
+      const index = state //인덱스를 찾고
+        .get("list")
+        .findIndex((item) => item.get("id") === action.payload);
+      return state.updateIn(["list", index, "entered"], (entered) => !entered); //특정 인덱스의 entered 필드 값을 반전
+    },
+    [LEAVE]: (state, action) => {
+      const index = state
+        .get("list")
+        .findIndex((item) => item.get("id") === action.payload); //인덱스를 찾고
+      return state.deleteIn(["list", index]); //특정 인덱스 제거
+    },
   },
   initialState
 );
