@@ -1,14 +1,14 @@
 import React from "react";
-import Counter from "../ReduxStudy/Counter";
-import Palette from "../ReduxStudy/Palette";
-import WaitingList from "../ReduxStudy/WaitingList";
+import CounterContainer from "../ReduxStudy/containers/CounterContainer";
+import PaletteContainer from "../ReduxStudy/containers/PaletteContainer";
+import WaitingListContainer from "../ReduxStudy/containers/WaitingListContainer";
 
 const ReduxStudy = () => {
   return (
     <div className="reduxstudy">
-      <Palette selected="red" />
-      <Counter value={0} color="red" />
-      <WaitingList />
+      <PaletteContainer />
+      <CounterContainer />
+      <WaitingListContainer />
     </div>
   );
 };

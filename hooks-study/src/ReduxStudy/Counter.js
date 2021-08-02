@@ -5,8 +5,8 @@ const Counter = ({ value, color, onIncrement, onDecrement }) => {
   return (
     <div className="Counter">
       <h1 style={{ color }}>{value}</h1>
-      <button onClick={onIncrement}>+</button>
-      <button onClick={onDecrement}>-</button>
+      <button onClick={onIncrement}>ADD(+)</button>
+      <button onClick={onDecrement}>SUB(-)</button>
     </div>
   );
 };
