@@ -9,6 +9,7 @@ const Navigation = () => {
         <a href="/HookStudy">HookStudy</a>
         <a href="/ReduxStudy">ReduxStudy</a>
         <a href="/MobxStudy">MobxStudy</a>
+        <a href="/HookReduxStudy">HookReduxStudy</a>
       </nav>
       <hr></hr>
     </div>
