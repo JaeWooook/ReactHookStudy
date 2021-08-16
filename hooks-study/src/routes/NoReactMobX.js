@@ -1,7 +1,6 @@
 import {
   decorate,
   observable,
-  reaction,
   computed,
   autorun,
   action,

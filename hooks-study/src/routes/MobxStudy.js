@@ -1,23 +1,17 @@
 import React from "react";
-import indexStore from "../store/modules/indexStore";
-import { useObserver } from "mobx-react-lite";
+import Counter from "../MobxStudy/componets/Counter";
+import SuperMarket from "../MobxStudy/componets/SuperMarket";
 
 const MobxStudy = () => {
-  const { numberStore } = indexStore();
-
-  const onClickIncrease = () => {
-    numberStore.increaseAction(1);
-  };
-  const onClickDecrease = () => {
-    numberStore.decreaseAction(1);
-  };
-  return useObserver(() => (
+  return (
     <div>
-      <p>현재 값: {numberStore.num}</p>
-      <button onClick={onClickIncrease}>증가</button>
-      <button onClick={onClickDecrease}>감소</button>
+      <div>
+        <Counter />
+      </div>
+      <hr />
+      <SuperMarket />
     </div>
-  ));
+  );
 };
 
 export default MobxStudy;
