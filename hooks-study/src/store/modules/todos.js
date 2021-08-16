@@ -8,19 +8,6 @@ const TOGGLE_CHECK = "todos/TOGGLE_CHECK";
 const REMOVE = "todos/REMOVE";
 
 let id = 3; //insert가 호출될 때마다 1씩 더해진다.
-//액션 생성 함수 만들기
-//예전 방법 조금 길어보인다.
-// export const changeInput = (input) => ({ type: CHANGE_INPUT, payload: input });
-// export const insert = (text) => ({
-//   type: INSERT,
-//   payload: {
-//     id: id++,
-//     text,
-//     done: false,
-//   },
-// });
-// export const toggleCheck = (id) => ({ type: TOGGLE_CHECK, payload: id });
-// export const remove = (id) => ({ type: REMOVE, payload: id });
 
 //액션 생성 함수를 간편하게 createAction 써서 만드는 방법
 //type에 대한 작성이없다 편리해보인다.
