@@ -9,16 +9,14 @@ import {
 } from "mobx";
 
 class GS25 {
-  @observable basket = [];
+  basket = [];
 
-  @computed
   get total() {
     console.log("계산 중입니다..!");
 
     return this.basket.reduce((prev, curr) => prev + curr.price, 0);
   }
 
-  @action
   select(name, price) {
     this.basket.push({ name, price });
   }
