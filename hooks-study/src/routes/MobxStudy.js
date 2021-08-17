@@ -1,6 +1,7 @@
 import React from "react";
 import Counter from "../MobxStudy/componets/Counter";
 import SuperMarket from "../MobxStudy/componets/SuperMarket";
+// import DevTools from "mobx-react-devtools";
 
 const MobxStudy = () => {
   return (
@@ -10,6 +11,7 @@ const MobxStudy = () => {
       </div>
       <hr />
       <SuperMarket />
+      {/* {process.env.NODE_ENV === "development" && <DevTools />} */}
     </div>
   );
 };

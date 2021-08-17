@@ -1,0 +1,10 @@
+.counter-main {
+  text-align: center;
+}
+
+.btn > button {
+  background-color: slateblue;
+  border: none;
+  color: white;
+  padding: 30px 50px;
+}

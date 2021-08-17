@@ -2,7 +2,7 @@ import { observable } from "mobx";
 
 const NumberStore = observable({
     //state
-    num: 0,
+    num: 1,
 
     //action
     increaseAction(num) {

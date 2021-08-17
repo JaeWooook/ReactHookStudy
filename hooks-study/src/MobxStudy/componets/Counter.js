@@ -13,9 +13,15 @@ const Counter = () => {
   };
   return useObserver(() => (
     <div>
-      <p>현재 값: {numberStore.num}</p>
-      <button onClick={onClickIncrease}>증가</button>
-      <button onClick={onClickDecrease}>감소</button>
+      <h1>
+        <p className="counter-main" style={{ textAlign: "center" }}>
+          장바구니에 담을 갯수: {numberStore.num}
+        </p>
+      </h1>
+      <div className="btn" style={{ textAlign: "center" }}>
+        <button onClick={onClickIncrease}>증가</button>
+        <button onClick={onClickDecrease}>감소</button>
+      </div>
     </div>
   ));
 };

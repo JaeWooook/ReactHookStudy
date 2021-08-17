@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./routes/Home";
 import HookStudy from "./routes/HookStudy";
 import ReduxStudy from "./routes/ReduxStudy";
 import MobxStudy from "./routes/MobxStudy";
@@ -11,6 +12,7 @@ function App() {
     <BrowserRouter>
       <Navigation />
       <Switch>
+        <Route exact path="/" component={Home} />
         <Route path="/HookStudy" component={HookStudy} />
         <Route path="/ReduxStudy" component={ReduxStudy} />
         <Route path="/MobxStudy" component={MobxStudy} />

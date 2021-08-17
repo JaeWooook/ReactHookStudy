@@ -33,3 +33,17 @@
 ### subscribe
 
 ## React & MobX Study~
+
+### Observable
+
+### action
+
+### reaction
+
+### computed
+
+### autorun
+
+### useObserver
+
+### Hook & Mobx
