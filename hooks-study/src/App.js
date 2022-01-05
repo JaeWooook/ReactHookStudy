@@ -12,11 +12,11 @@ function App() {
     <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/HookStudy" element={<HookStudy />} />
-        <Route path="/ReduxStudy" element={<ReduxStudy />} />
-        <Route path="/MobxStudy" element={<MobxStudy />} />
-        <Route path="/HookReduxStudy" element={<HookReduxStudy />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/HookStudy/*" element={<HookStudy />} />
+        <Route path="/ReduxStudy/*" element={<ReduxStudy />} />
+        <Route path="/MobxStudy/*" element={<MobxStudy />} />
+        <Route path="/HookReduxStudy/*" element={<HookReduxStudy />} />
       </Routes>
     </BrowserRouter>
   );
